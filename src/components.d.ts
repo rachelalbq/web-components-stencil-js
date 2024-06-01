@@ -11,9 +11,16 @@ export namespace Components {
     interface CardComponent {
     }
     interface InputComponent {
+        "icon": string;
+        "placeholder": string;
+        "title": string;
     }
     interface PaginationComponent {
     }
+}
+export interface InputComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInputComponentElement;
 }
 declare global {
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
@@ -28,7 +35,18 @@ declare global {
         prototype: HTMLCardComponentElement;
         new (): HTMLCardComponentElement;
     };
+    interface HTMLInputComponentElementEventMap {
+        "inputEvent": any;
+    }
     interface HTMLInputComponentElement extends Components.InputComponent, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLInputComponentElementEventMap>(type: K, listener: (this: HTMLInputComponentElement, ev: InputComponentCustomEvent<HTMLInputComponentElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLInputComponentElementEventMap>(type: K, listener: (this: HTMLInputComponentElement, ev: InputComponentCustomEvent<HTMLInputComponentElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLInputComponentElement: {
         prototype: HTMLInputComponentElement;
@@ -53,6 +71,10 @@ declare namespace LocalJSX {
     interface CardComponent {
     }
     interface InputComponent {
+        "icon"?: string;
+        "onInputEvent"?: (event: InputComponentCustomEvent<any>) => void;
+        "placeholder"?: string;
+        "title"?: string;
     }
     interface PaginationComponent {
     }
