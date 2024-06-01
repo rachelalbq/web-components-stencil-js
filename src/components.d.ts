@@ -6,9 +6,16 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface AppHome {
+    interface AppRoot {
+    }
+    interface CardBodyComponent {
+        "data": { [key: string]: any };
     }
     interface CardComponent {
+        "data": Record<string, any>;
+    }
+    interface CardHeaderComponent {
+        "data": Record<string, any>;
     }
     interface InputComponent {
         "icon": string;
@@ -16,24 +23,42 @@ export namespace Components {
         "title": string;
     }
     interface PaginationComponent {
+        "activePage": number;
+        "totalPages": number;
     }
 }
 export interface InputComponentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInputComponentElement;
 }
+export interface PaginationComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPaginationComponentElement;
+}
 declare global {
-    interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
+    interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
-    var HTMLAppHomeElement: {
-        prototype: HTMLAppHomeElement;
-        new (): HTMLAppHomeElement;
+    var HTMLAppRootElement: {
+        prototype: HTMLAppRootElement;
+        new (): HTMLAppRootElement;
+    };
+    interface HTMLCardBodyComponentElement extends Components.CardBodyComponent, HTMLStencilElement {
+    }
+    var HTMLCardBodyComponentElement: {
+        prototype: HTMLCardBodyComponentElement;
+        new (): HTMLCardBodyComponentElement;
     };
     interface HTMLCardComponentElement extends Components.CardComponent, HTMLStencilElement {
     }
     var HTMLCardComponentElement: {
         prototype: HTMLCardComponentElement;
         new (): HTMLCardComponentElement;
+    };
+    interface HTMLCardHeaderComponentElement extends Components.CardHeaderComponent, HTMLStencilElement {
+    }
+    var HTMLCardHeaderComponentElement: {
+        prototype: HTMLCardHeaderComponentElement;
+        new (): HTMLCardHeaderComponentElement;
     };
     interface HTMLInputComponentElementEventMap {
         "inputEvent": any;
@@ -52,23 +77,43 @@ declare global {
         prototype: HTMLInputComponentElement;
         new (): HTMLInputComponentElement;
     };
+    interface HTMLPaginationComponentElementEventMap {
+        "pageChange": number;
+    }
     interface HTMLPaginationComponentElement extends Components.PaginationComponent, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPaginationComponentElementEventMap>(type: K, listener: (this: HTMLPaginationComponentElement, ev: PaginationComponentCustomEvent<HTMLPaginationComponentElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPaginationComponentElementEventMap>(type: K, listener: (this: HTMLPaginationComponentElement, ev: PaginationComponentCustomEvent<HTMLPaginationComponentElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPaginationComponentElement: {
         prototype: HTMLPaginationComponentElement;
         new (): HTMLPaginationComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "app-home": HTMLAppHomeElement;
+        "app-root": HTMLAppRootElement;
+        "card-body-component": HTMLCardBodyComponentElement;
         "card-component": HTMLCardComponentElement;
+        "card-header-component": HTMLCardHeaderComponentElement;
         "input-component": HTMLInputComponentElement;
         "pagination-component": HTMLPaginationComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface AppHome {
+    interface AppRoot {
+    }
+    interface CardBodyComponent {
+        "data"?: { [key: string]: any };
     }
     interface CardComponent {
+        "data"?: Record<string, any>;
+    }
+    interface CardHeaderComponent {
+        "data"?: Record<string, any>;
     }
     interface InputComponent {
         "icon"?: string;
@@ -77,10 +122,15 @@ declare namespace LocalJSX {
         "title"?: string;
     }
     interface PaginationComponent {
+        "activePage"?: number;
+        "onPageChange"?: (event: PaginationComponentCustomEvent<number>) => void;
+        "totalPages"?: number;
     }
     interface IntrinsicElements {
-        "app-home": AppHome;
+        "app-root": AppRoot;
+        "card-body-component": CardBodyComponent;
         "card-component": CardComponent;
+        "card-header-component": CardHeaderComponent;
         "input-component": InputComponent;
         "pagination-component": PaginationComponent;
     }
@@ -89,8 +139,10 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
+            "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "card-body-component": LocalJSX.CardBodyComponent & JSXBase.HTMLAttributes<HTMLCardBodyComponentElement>;
             "card-component": LocalJSX.CardComponent & JSXBase.HTMLAttributes<HTMLCardComponentElement>;
+            "card-header-component": LocalJSX.CardHeaderComponent & JSXBase.HTMLAttributes<HTMLCardHeaderComponentElement>;
             "input-component": LocalJSX.InputComponent & JSXBase.HTMLAttributes<HTMLInputComponentElement>;
             "pagination-component": LocalJSX.PaginationComponent & JSXBase.HTMLAttributes<HTMLPaginationComponentElement>;
         }
