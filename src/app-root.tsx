@@ -1,4 +1,4 @@
-import { Component, State, h } from '@stencil/core'
+import { Component, Host, State, h } from '@stencil/core'
 import { Character } from './models/character';
 
 @Component({
@@ -56,11 +56,17 @@ export class AppRoot {
         this.totalPages = Math.ceil(filteredCharacters.length / 4);
 
         return (
-            <div class="home">
+            <Host>
                 <header>
-                    <h1>Busca de personagens</h1>
+                    <img class="logo" src="https://www.objective.com.br/wp-content/uploads/2020/11/logo.svg" alt="logo da objective" />
+                    <div class="d-flex">
+                        <p><strong>Nome do candidato </strong>Teste de Front-end</p>
+                        <span>RA</span>
+                    </div>
                 </header>
+
                 <main>
+                    <h1>Busca de personagens</h1>
                     <input-component
                         title="Nome do personagem"
                         placeholder="Search"
@@ -75,14 +81,16 @@ export class AppRoot {
                             ></card-component>
                         )}
                     </div>
+                </main>
 
+                <footer>
                     <pagination-component
                         totalPages={this.totalPages}
                         activePage={this.activePage}
                         onPageChange={(event) => this.handlePageChange(event)}
                     ></pagination-component>
-                </main>
-            </div>
+                </footer>
+            </Host>
         );
     }
 }
