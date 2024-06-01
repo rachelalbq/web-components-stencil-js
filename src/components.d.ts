@@ -6,56 +6,71 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface AppHome {
+    }
+    interface CardComponent {
+    }
+    interface InputComponent {
+    }
+    interface PaginationComponent {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLAppHomeElement: {
+        prototype: HTMLAppHomeElement;
+        new (): HTMLAppHomeElement;
+    };
+    interface HTMLCardComponentElement extends Components.CardComponent, HTMLStencilElement {
+    }
+    var HTMLCardComponentElement: {
+        prototype: HTMLCardComponentElement;
+        new (): HTMLCardComponentElement;
+    };
+    interface HTMLInputComponentElement extends Components.InputComponent, HTMLStencilElement {
+    }
+    var HTMLInputComponentElement: {
+        prototype: HTMLInputComponentElement;
+        new (): HTMLInputComponentElement;
+    };
+    interface HTMLPaginationComponentElement extends Components.PaginationComponent, HTMLStencilElement {
+    }
+    var HTMLPaginationComponentElement: {
+        prototype: HTMLPaginationComponentElement;
+        new (): HTMLPaginationComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "app-home": HTMLAppHomeElement;
+        "card-component": HTMLCardComponentElement;
+        "input-component": HTMLInputComponentElement;
+        "pagination-component": HTMLPaginationComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface AppHome {
+    }
+    interface CardComponent {
+    }
+    interface InputComponent {
+    }
+    interface PaginationComponent {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "app-home": AppHome;
+        "card-component": CardComponent;
+        "input-component": InputComponent;
+        "pagination-component": PaginationComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
+            "card-component": LocalJSX.CardComponent & JSXBase.HTMLAttributes<HTMLCardComponentElement>;
+            "input-component": LocalJSX.InputComponent & JSXBase.HTMLAttributes<HTMLInputComponentElement>;
+            "pagination-component": LocalJSX.PaginationComponent & JSXBase.HTMLAttributes<HTMLPaginationComponentElement>;
         }
     }
 }
