@@ -1,4 +1,23 @@
+li,
+span {
+  color: #555555;
+  font-size: 14px;
+}
+
+ul {
+  list-style-type: none;
+}
+
 .card-body {
-    display: flex;
-    justify-content: space-between;
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card-item {
+  max-height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}

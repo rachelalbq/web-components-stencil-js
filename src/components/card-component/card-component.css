@@ -1,6 +1,16 @@
 .card {
-    border: 1px solid #ddd;
-    padding: 16px;
-    border-radius: 8px;
-    margin: 8px 0;
+  display: grid;
+  grid-template-columns: 2fr 4fr 1fr;
+  max-height: 88px;
+  background-color: #FFFFFF;
+  padding: 20px 16px 19px;
+  box-shadow: 0px 0px 5px #00000033;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+@media screen and (max-width: 670px) {
+  .card-body {
+    display: none;
   }
+}
