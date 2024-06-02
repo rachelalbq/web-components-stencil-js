@@ -12,7 +12,7 @@ export namespace Components {
         "data": { [key: string]: any };
     }
     interface CardComponent {
-        "data": Record<string, any>;
+        "data": Record<string, any>[];
     }
     interface CardHeaderComponent {
         "data": Record<string, any>;
@@ -110,7 +110,7 @@ declare namespace LocalJSX {
         "data"?: { [key: string]: any };
     }
     interface CardComponent {
-        "data"?: Record<string, any>;
+        "data"?: Record<string, any>[];
     }
     interface CardHeaderComponent {
         "data"?: Record<string, any>;

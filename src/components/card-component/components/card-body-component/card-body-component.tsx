@@ -15,7 +15,7 @@ export class CardBodyComponent {
       <div class="card-body">
         {Object.keys(this.data).map(key => (
           !excludeKeys.includes(key) && (
-            <div class="card-item"> 
+            <div class="card-item">
               {Array.isArray(this.data[key]) ? (
                 <ul>
                   {this.data[key].map(item => (
