@@ -28,7 +28,7 @@ i {
   align-items: center;
 }
 
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 690px) {
   label {
     text-align: center;
   }

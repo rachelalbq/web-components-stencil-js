@@ -9,7 +9,15 @@
   margin-bottom: 8px;
 }
 
-@media screen and (max-width: 670px) {
+
+
+@media screen and (max-width: 690px) {
+  .card  {
+    display: flex;
+    flex-direction: column;
+    max-height: fit-content;
+  }
+
   .card-body {
     display: none;
   }
