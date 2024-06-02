@@ -1,16 +1,20 @@
 li,
-span {
+span,
+strong {
   color: #555555;
   font-size: 14px;
 }
 
 ul {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .card-body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
 .card-item {
@@ -20,4 +24,16 @@ ul {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+}
+
+.visible {
+  display: none;
+}
+
+
+@media screen and (max-width: 690px) {
+  .visible {
+    display: block;
+    margin: 5px 0px;
+  }
 }

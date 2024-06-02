@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from '@stencil/core';
+import { Component, Host, Prop, State, h } from '@stencil/core';
 
 @Component({
   tag: 'card-component',
@@ -6,15 +6,21 @@ import { Component, Host, Prop, h } from '@stencil/core';
   shadow: true,
 })
 export class CardComponent {
-  @Prop() data: Record<string, any>[];
+  @Prop() data: { [key: string]: any }[];
+  @State() expandedItem: { [key: string]: any } | null = null;
+  
+  toggleExpand(item: { [key: string]: any }) {
+    this.expandedItem = item;
+  }
+
 
   render() {
     return (
       <Host>
         {this.data.map((item) => (
-          <div class="card">
+          <div class="card" onClick={() => this.toggleExpand(item)}>
             <card-header-component data={item}></card-header-component>
-            <card-body-component class="card-body" data={item}></card-body-component>
+            <card-body-component class={this.expandedItem === item ? '' : 'card-body'} data={item}></card-body-component> 
           </div>
         ))}
       </Host>

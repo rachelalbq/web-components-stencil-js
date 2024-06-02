@@ -13,6 +13,11 @@ export class AppRoot {
     @State() totalPages: number = 1;
     @State() activePage: number = 1;
     @State() data: Character[] = [
+        { name: 'Rachel Leighton', image: 'assets/images/rachel.png', series: ['Domino: Hotshots', 'Domino', 'Captain America'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
+        { name: 'Scott Lang', image: 'assets/images/scott.png', series: ['Ant-Man', 'Giant-Man', 'Infinity Wars'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
+        { name: 'Steve Rogers', image: 'assets/images/steve.png', series: ['New Avengers', 'Captain America Special', 'Secret Empire: United We Stand'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
+        { name: 'Tony Stark', image: 'assets/images/tony.png', series: ['New Avengers', 'Indestructible Hulk', 'Ultimate Fallout'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
+        { name: 'Wanda Maximoff', image: 'assets/images/wanda.png', series: ['New Avengers'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
         { name: 'Abner Jenkins', image: 'assets/images/abner.png', series: ['Iron Man: Armor Wars', 'Old Man Hawkeye', 'Fantastic Four Visionaries: Walter Simonson Vol. 1'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
         { name: 'Amora', image: 'assets/images/amora.png', series: ['Green Goblin'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
         { name: 'Barry Norman Osborn', image: 'assets/images/barry.png', series: ['Spider-Island: Deadly Foes', 'Peter Parker: The Spectacular Spider-Man', 'The Amazing Spider-Man'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
@@ -28,12 +33,6 @@ export class AppRoot {
         { name: 'Melati Kusuma', image: 'assets/images/melati.png', series: ['Fear Itself: Youth in Revolt', 'Avengers: The Initiativ'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
         { name: 'Melvin Potter', image: 'assets/images/melvin.png', series: ['Daredevil Saga', 'Daredevil', 'Marvel Masterworks: Daredevil Vol. 3'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
         { name: 'Paul Norbert Ebersol', image: 'assets/images/paul.png', series: ['Thunderbolts', 'Captain America', 'Marvel Two-in-One'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
-        { name: 'Rachel Leighton', image: 'assets/images/rachel.png', series: ['Domino: Hotshots', 'Domino', 'Captain America'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
-        { name: 'Scott Lang', image: 'assets/images/scott.png', series: ['Ant-Man', 'Giant-Man', 'Infinity Wars'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
-        { name: 'Steve Rogers', image: 'assets/images/steve.png', series: ['New Avengers', 'Captain America Special', 'Secret Empire: United We Stand'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
-        { name: 'Tony Stark', image: 'assets/images/tony.png', series: ['New Avengers', 'Indestructible Hulk', 'Ultimate Fallout'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
-        { name: 'Wanda Maximoff', image: 'assets/images/wanda.png', series: ['New Avengers'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
-
     ];
 
 
@@ -76,6 +75,13 @@ export class AppRoot {
 
 
                     <div class="character-wrapper">
+                        <div class="character-header">
+                            <span>Personagem</span>
+                            <div>
+                                <span>Séries</span>
+                                <span>Eventos</span>
+                            </div>
+                        </div>
                         <card-component data={visibleCharacters}></card-component>
                     </div>
                     
