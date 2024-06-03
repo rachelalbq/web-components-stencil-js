@@ -6,7 +6,7 @@ import { Component, Host, Prop, State, h } from '@stencil/core';
   shadow: true,
 })
 export class CardComponent {
-  @Prop() data: { [key: string]: any }[];
+  @Prop() data: { [key: string]: any }[] = [];
   @State() expandedItem: { [key: string]: any } | null = null;
   
   toggleExpand(item: { [key: string]: any }) {

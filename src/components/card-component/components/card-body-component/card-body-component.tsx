@@ -6,7 +6,7 @@ import { Component, Prop, h } from '@stencil/core';
   shadow: true
 })
 export class CardBodyComponent {
-  @Prop() data: { [key: string]: any };
+  @Prop() data: { [key: string]: any } = {};
 
   render() {
     const excludeKeys = ['name', 'id', 'image'];

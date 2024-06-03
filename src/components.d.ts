@@ -18,7 +18,7 @@ export namespace Components {
         "data": { [key: string]: any };
     }
     interface InputComponent {
-        "icon": string;
+        "icon"?: string;
         "label": string;
         "placeholder": string;
     }

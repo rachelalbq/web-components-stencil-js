@@ -10,7 +10,7 @@ export class InputComponent {
 
     @Prop() label: string;
     @Prop() placeholder: string;
-    @Prop() icon: string;
+    @Prop() icon?: string;
     @Event() inputEvent: EventEmitter;
 
     handleInput(event: Event) {
