@@ -34,7 +34,6 @@ export class AppRoot {
         { name: 'Paul Norbert Ebersol', image: 'assets/images/paul.png', series: ['Thunderbolts', 'Captain America', 'Marvel Two-in-One'], events: ['AvX', 'Demon in the Bottle', 'Dynasty M'] },
     ];
 
-
     handleSearch(event: CustomEvent) {
         this.searchQuery = event.detail;
         this.activePage = 1
