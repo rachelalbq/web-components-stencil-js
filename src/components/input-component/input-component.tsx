@@ -8,7 +8,7 @@ import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
 
 export class InputComponent {
 
-    @Prop() title: string;
+    @Prop() label: string;
     @Prop() placeholder: string;
     @Prop() icon: string;
     @Event() inputEvent: EventEmitter;
@@ -20,7 +20,7 @@ export class InputComponent {
     render() {
         return (
             <div class="input-container">
-                <label>{this.title}</label>
+                <label>{this.label}</label>
                 <div class="input-wrapper">
                     <input type="text" placeholder={this.placeholder} onInput={(event) => this.handleInput(event)} />
                     <i class={this.icon}></i>
