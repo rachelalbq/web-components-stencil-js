@@ -7,7 +7,6 @@ import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
 })
 
 export class InputComponent {
-
     @Prop() label: string;
     @Prop() placeholder: string;
     @Prop() icon?: string;

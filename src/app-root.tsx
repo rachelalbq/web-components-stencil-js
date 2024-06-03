@@ -8,7 +8,6 @@ import { Character } from './models/character';
 })
 
 export class AppRoot {
-
     @State() searchQuery: string = '';
     @State() totalPages: number = 1;
     @State() activePage: number = 1;
@@ -84,7 +83,6 @@ export class AppRoot {
                         </div>
                         <card-component data={visibleCharacters}></card-component>
                     </div>
-                    
                 </main>
 
                 <footer>
@@ -94,7 +92,6 @@ export class AppRoot {
                         onPageChange={(event) => this.handlePageChange(event)}
                     ></pagination-component>
                 </footer>
-
             </Host>
         );
     }

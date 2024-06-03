@@ -13,7 +13,6 @@ export class CardComponent {
     this.expandedItem = item;
   }
 
-
   render() {
     return (
       <Host>

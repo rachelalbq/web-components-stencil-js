@@ -9,8 +9,6 @@
   margin-bottom: 8px;
 }
 
-
-
 @media screen and (max-width: 690px) {
   .card  {
     display: flex;

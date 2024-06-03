@@ -79,7 +79,6 @@ footer {
     gap: 15px;
 }
 
-
 @media screen and (max-width: 690px) {
     main {
         padding: 24px 34.5px;

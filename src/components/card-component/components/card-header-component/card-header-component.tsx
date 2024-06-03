@@ -7,6 +7,7 @@ import { Component, Host, Prop, h } from '@stencil/core';
 })
 export class CardHeaderComponent {
     @Prop() data: { [key: string]: any };
+    
     render() {
         return (
             <Host>
