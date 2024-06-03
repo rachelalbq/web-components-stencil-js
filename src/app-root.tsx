@@ -67,7 +67,7 @@ export class AppRoot {
                 <main>
                     <h1>Busca de personagens</h1>
                     <input-component
-                        title="Nome do personagem"
+                        label="Nome do personagem"
                         placeholder="Search"
                         icon="search-icon"
                         onInputEvent={(event) => this.handleSearch(event)}

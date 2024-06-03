@@ -19,11 +19,8 @@ export namespace Components {
     }
     interface InputComponent {
         "icon": string;
+        "label": string;
         "placeholder": string;
-        "title": string;
-    }
-    interface ModalComponent {
-        "data": { [key: string]: any };
     }
     interface PaginationComponent {
         "activePage": number;
@@ -80,12 +77,6 @@ declare global {
         prototype: HTMLInputComponentElement;
         new (): HTMLInputComponentElement;
     };
-    interface HTMLModalComponentElement extends Components.ModalComponent, HTMLStencilElement {
-    }
-    var HTMLModalComponentElement: {
-        prototype: HTMLModalComponentElement;
-        new (): HTMLModalComponentElement;
-    };
     interface HTMLPaginationComponentElementEventMap {
         "pageChange": number;
     }
@@ -109,7 +100,6 @@ declare global {
         "card-component": HTMLCardComponentElement;
         "card-header-component": HTMLCardHeaderComponentElement;
         "input-component": HTMLInputComponentElement;
-        "modal-component": HTMLModalComponentElement;
         "pagination-component": HTMLPaginationComponentElement;
     }
 }
@@ -127,12 +117,9 @@ declare namespace LocalJSX {
     }
     interface InputComponent {
         "icon"?: string;
+        "label"?: string;
         "onInputEvent"?: (event: InputComponentCustomEvent<any>) => void;
         "placeholder"?: string;
-        "title"?: string;
-    }
-    interface ModalComponent {
-        "data"?: { [key: string]: any };
     }
     interface PaginationComponent {
         "activePage"?: number;
@@ -145,7 +132,6 @@ declare namespace LocalJSX {
         "card-component": CardComponent;
         "card-header-component": CardHeaderComponent;
         "input-component": InputComponent;
-        "modal-component": ModalComponent;
         "pagination-component": PaginationComponent;
     }
 }
@@ -158,7 +144,6 @@ declare module "@stencil/core" {
             "card-component": LocalJSX.CardComponent & JSXBase.HTMLAttributes<HTMLCardComponentElement>;
             "card-header-component": LocalJSX.CardHeaderComponent & JSXBase.HTMLAttributes<HTMLCardHeaderComponentElement>;
             "input-component": LocalJSX.InputComponent & JSXBase.HTMLAttributes<HTMLInputComponentElement>;
-            "modal-component": LocalJSX.ModalComponent & JSXBase.HTMLAttributes<HTMLModalComponentElement>;
             "pagination-component": LocalJSX.PaginationComponent & JSXBase.HTMLAttributes<HTMLPaginationComponentElement>;
         }
     }
